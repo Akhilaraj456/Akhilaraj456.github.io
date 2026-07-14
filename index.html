@@ -89,7 +89,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 /* ================= HERO ================= */
 .hero{position:relative;padding:150px 0 90px;overflow:hidden}
 #net{position:absolute;inset:0;z-index:0;opacity:.5}
-.hero-lower{display:grid;grid-template-columns:1fr clamp(200px,32vw,300px);gap:clamp(28px,4vw,56px);align-items:center;margin-top:8px}
+.hero-lower{display:grid;grid-template-columns:1fr clamp(200px,30vw,290px);gap:clamp(28px,4vw,48px);align-items:start;margin-top:8px}
 @media(max-width:540px){.hero-lower{grid-template-columns:1fr;gap:44px}}
 h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.6rem,6.4vw,4.6rem);line-height:1.06;letter-spacing:-.01em;max-width:900px}
 h1 em{color:var(--rose);font-style:italic}
@@ -105,8 +105,8 @@ h1 em{color:var(--rose);font-style:italic}
 @media(max-width:600px){.hero{padding:120px 0 64px}}
 
 /* portrait */
-.portrait{position:relative;justify-self:end;width:min(300px,100%);aspect-ratio:4/5}
-@media(max-width:540px){.portrait{justify-self:center;width:min(300px,74vw)}}
+.portrait{position:relative;justify-self:center;width:min(290px,100%);aspect-ratio:4/5;margin-top:6px}
+@media(max-width:540px){.portrait{justify-self:center;width:min(300px,74vw);margin-top:0}}
 .portrait .frame{position:absolute;inset:0;border:1px solid var(--rose-soft);border-radius:14px;overflow:hidden;background:var(--panel)}
 .portrait img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92) contrast(1.03)}
 .portrait .fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:
@@ -202,6 +202,20 @@ section{padding:100px 0}
 .proj.feature h3{font-size:1.6rem}
 .proj p{color:var(--ivory-dim);font-size:.9rem}
 .proj .stack{margin-top:14px;font-family:var(--mono);font-size:.58rem;letter-spacing:.14em;color:var(--slate);text-transform:uppercase}
+.proj .view{margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);background:none;border:1px solid var(--rose-soft);border-radius:999px;padding:8px 16px;cursor:pointer;transition:border-color .25s,background .25s}
+.proj .view:hover{border-color:var(--rose);background:var(--rose-faint)}
+.proj.feature .view{color:var(--gold);border-color:var(--gold-soft)}
+.proj.feature .view:hover{border-color:var(--gold);background:rgba(200,169,110,.1)}
+
+/* lightbox */
+#lightbox{position:fixed;inset:0;z-index:200;background:rgba(6,8,11,.94);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:5vh 24px;cursor:zoom-out}
+#lightbox.open{display:flex}
+.lb-inner{max-width:1000px;width:100%;max-height:90vh;display:flex;flex-direction:column;gap:14px;cursor:default}
+.lb-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose)}
+#lbClose{background:none;border:1px solid var(--rose-soft);color:var(--slate);font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;padding:8px 14px;border-radius:999px;cursor:pointer;transition:color .25s,border-color .25s}
+#lbClose:hover{color:var(--rose);border-color:var(--rose)}
+#lbImg{width:100%;max-height:78vh;object-fit:contain;border:1px solid var(--rose-soft);border-radius:10px;background:var(--panel)}
+#lbMsg{border:1px dashed var(--rose-soft);border-radius:10px;background:var(--panel);padding:60px 24px;text-align:center;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;color:var(--slate);line-height:2}
 
 /* ================= BEYOND ================= */
 .beyond-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -365,7 +379,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
         <div class="key" tabindex="0" data-name="Bash" data-desc="shell scripting that glues the pipelines together"><img class="kicon inv" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="" onerror="this.remove()"><span class="klabel">Bash</span></div>
       </div>
       <div class="kb-row">
-        <div class="key" tabindex="0" data-name="React" data-desc="frontends for AI Cognify and friends"><img class="kicon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="" onerror="this.remove()"><span class="klabel">React</span></div>
+        <div class="key" tabindex="0" data-name="React" data-desc="component-driven frontends, currently deepening with TypeScript"><img class="kicon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="" onerror="this.remove()"><span class="klabel">React</span></div>
         <div class="key" tabindex="0" data-name="Node.js" data-desc="backend of choice when the frontend is JavaScript"><img class="kicon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="" onerror="this.remove()"><span class="klabel">Node</span></div>
         <div class="key" tabindex="0" data-name="Streamlit" data-desc="how MedTwin went from notebook to real dashboard"><img class="kicon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original.svg" alt="" onerror="this.remove()"><span class="klabel">Streamlit</span></div>
         <div class="key" tabindex="0" data-name="pandas" data-desc="months of industrial sensor data, handled cleanly"><img class="kicon inv" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pandas/pandas-original.svg" alt="" onerror="this.remove()"><span class="klabel">pandas</span></div>
@@ -415,7 +429,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
       <div class="xp-item rv">
         <div>
-          <h3>McGill Artificial Intelligence Society</h3>
+          <h3><a href="https://mcgillai.com/" target="_blank" rel="noopener">McGill Artificial Intelligence Society</a></h3>
           <div class="xp-role">VP External</div>
           <p>Lead sponsorships and strategic partnerships with organisations across AI and technology, support the development and execution of projects and community initiatives, and build relationships with industry professionals, startups, and corporate partners.</p>
         </div>
@@ -424,7 +438,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
       <div class="xp-item rv">
         <div>
-          <h3>McGill Biomechanics</h3>
+          <h3><a href="https://www.linkedin.com/company/78680064/" target="_blank" rel="noopener">McGill Biomechanics</a></h3>
           <div class="xp-role">VP Business</div>
           <p>Secured and managed industry partnerships and sponsorships, oversaw budgeting and strategic planning for club initiatives, and led corporate outreach to expand member opportunities.</p>
         </div>
@@ -433,7 +447,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
       <div class="xp-item rv">
         <div>
-          <h3>McGill BioDesign</h3>
+          <h3><a href="https://www.mcgillbiodesign.com/" target="_blank" rel="noopener">McGill BioDesign</a></h3>
           <div class="xp-role">VP External Affairs</div>
           <p>Lead sponsorships and strategic partnerships across the biotech, healthcare, and technology sectors, represent the team at conferences and career fairs, and drive industry outreach that expands opportunities for members.</p>
         </div>
@@ -442,16 +456,16 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
       <div class="xp-item rv">
         <div>
-          <h3>KnightStone Communities</h3>
+          <h3><a href="https://liveksc.ca/" target="_blank" rel="noopener">KnightStone Communities</a></h3>
           <div class="xp-role">Resident Programs &amp; Operations Lead</div>
-          <p>Organised resident events and engagement initiatives, managed leasing operations and communications for 500 residents using Entrata, and enforced safety protocols and incident reporting.</p>
+          <p>Organised resident events and engagement initiatives, managed leasing operations and communications for 900+ student residents using Entrata, and enforced safety protocols and incident reporting.</p>
         </div>
         <div class="xp-date">AUG 2025 – PRESENT<br>MONTRÉAL</div>
       </div>
 
       <div class="xp-item rv">
         <div>
-          <h3>Dettol</h3>
+          <h3><a href="https://www.reckitt.com/brands/dettol/" target="_blank" rel="noopener">Dettol</a></h3>
           <div class="xp-role">Marketing Strategy Lead</div>
           <p>Led a team of three interns developing and presenting strategic marketing proposals to school administrators and Dettol leadership, and ran primary research and product testing under tight deadlines.</p>
         </div>
@@ -460,9 +474,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 
       <div class="xp-item rv">
         <div>
-          <h3>Emirates International School</h3>
+          <h3><a href="https://eischools.ae/jumeirah" target="_blank" rel="noopener">Emirates International School</a></h3>
           <div class="xp-role">Head Girl · Head of External Affairs, MUN</div>
-          <p>Represented 3,000+ students and led the planning of 30+ large-scale events. As Head of External Affairs for MUN, secured partnerships with 70 schools, driving record participation of 400+ international delegates.</p>
+          <p>Graduated with top 1% distinction. Represented 3,000+ students as Head Girl and led the planning of 30+ large-scale events. As Head of External Affairs for <a href="https://eischools.ae/jumeirah/model-united-nations-at-eisj" target="_blank" rel="noopener">EISJ MUN</a>, secured partnerships with 70 schools, driving record participation of 400+ students internationally.</p>
         </div>
         <div class="xp-date">2022 – 2024<br>DUBAI</div>
       </div>
@@ -473,7 +487,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
           <div class="xp-role">B.Sc. Computer Science · AI Specialisation · Neuroscience Minor</div>
           <p>Where the two halves of the plan meet: intelligent systems, and the most intelligent system we know of.</p>
         </div>
-        <div class="xp-date">2024 – 2027<br>MONTRÉAL</div>
+        <div class="xp-date">2024 – 2028<br>MONTRÉAL</div>
       </div>
 
     </div>
@@ -496,6 +510,7 @@ SHAP attribution ........ toxic substructures localised  ⚑</div>
           <h3>Lethal Dose</h3>
           <p>An interpretable machine learning pipeline that predicts LD50 drug toxicity directly from molecular structure. Molecules were encoded with Morgan fingerprints and physicochemical descriptors, then modelled with Ridge Regression, Random Forest, and XGBoost, reaching an R² of 0.65 in line with published benchmarks. A weighted ensemble reduced variance, and SHAP attribution powered a "Toxic Substructure Hunter" that localises the high-risk fragments of a molecule. In drug discovery, a prediction is only useful if a chemist can see why it was made.</p>
           <div class="stack">Python · RDKit · XGBoost · scikit-learn · SHAP · PyTDC · NumPy · Pandas · Matplotlib</div>
+          <button class="view" data-img="projects/lethal-dose.png" data-caption="Lethal Dose — PharmaHacks 2026">View project ↗</button>
         </div>
       </div>
 
@@ -510,6 +525,7 @@ SHAP attribution ........ toxic substructures localised  ⚑</div>
           <h3>MedTwin</h3>
           <p>An AI-powered digital patient twin that simulates long-term cardiovascular and diabetes risk outcomes. Modular simulation engines feed interactive dashboards for comparing treatment scenarios, with the OpenAI API generating interpretable clinical insights.</p>
           <div class="stack">Python · Streamlit · Pandas · NumPy · Plotly · OpenAI API</div>
+          <button class="view" data-img="projects/medtwin.png" data-caption="MedTwin — digital patient twin">View project ↗</button>
         </div>
       </div>
 
@@ -523,6 +539,7 @@ fault_rate ↗ exponential fit r²=0.97</div>
           <h3>Open Wind Analytics</h3>
           <p>An open-source rebuild of industrial-grade turbine health monitoring on public SCADA datasets: status-code trending, anomaly flagging, and performance analysis anyone can run.</p>
           <div class="stack">Python · Pandas · scikit-learn</div>
+          <button class="view" data-img="projects/open-wind.png" data-caption="Open Wind Analytics">View project ↗</button>
         </div>
       </div>
 
@@ -536,19 +553,7 @@ fault_rate ↗ exponential fit r²=0.97</div>
           <h3>Alfred Financier</h3>
           <p>A full-stack financial planning platform built in a four-person team, integrating the Gemini API to generate automated budgeting insights and investment analysis dashboards.</p>
           <div class="stack">JavaScript · HTML · CSS · Gemini API</div>
-        </div>
-      </div>
-
-      <div class="proj rv">
-        <div class="proj-visual">study_session.start()
-  ├─ concept.explain   [react ui]
-  ├─ answer.generate   [chatgpt api]
-  └─ backend.serve     [python + node]</div>
-        <div class="proj-body">
-          <div class="proj-tag"><span>Full stack · AI</span><span class="st live">SHIPPED</span></div>
-          <h3>AI Cognify</h3>
-          <p>A full-stack AI learning assistant with a Python and Node.js backend and a React frontend, integrating the ChatGPT API for real-time explanations and interactive study support.</p>
-          <div class="stack">Python · Node.js · React · ChatGPT API</div>
+          <button class="view" data-img="projects/alfred-financier.png" data-caption="Alfred Financier — McHacks 13">View project ↗</button>
         </div>
       </div>
 
@@ -562,6 +567,7 @@ fault_rate ↗ exponential fit r²=0.97</div>
           <h3>FocusFlow</h3>
           <p>A full-stack study session simulator with a custom API-style logic engine that generates adaptive session outcomes based on user inputs.</p>
           <div class="stack">JavaScript · HTML · CSS</div>
+          <button class="view" data-img="projects/focusflow.png" data-caption="FocusFlow — CodeJam 15">View project ↗</button>
         </div>
       </div>
 
@@ -591,7 +597,7 @@ fault_rate ↗ exponential fit r²=0.97</div>
       </div>
     </div>
     <div class="creds rv">
-      <div><b>AWARDS</b>&nbsp;&nbsp;🏆 1st Place, PharmaHacks 2026 · Delegate of Iran, CTY Model United Nations</div>
+      <div><b>AWARDS</b>&nbsp;&nbsp;🏆 1st Place, PharmaHacks 2026 · IB Service Award · MYP Design &amp; IT Award · MYP Personal Project Award</div>
       <div><b>LANGUAGES</b>&nbsp;&nbsp;English (first language) · French (proficient) · Arabic (beginner)</div>
       <div><b>CERTIFIED</b>&nbsp;&nbsp;OSG Management Training (2025)</div>
     </div>
@@ -631,6 +637,19 @@ fault_rate ↗ exponential fit r²=0.97</div>
     <span>© 2026 · DUBAI ⇄ MONTRÉAL</span>
   </div>
 </footer>
+
+
+<!-- ============ LIGHTBOX ============ -->
+<div id="lightbox" role="dialog" aria-label="Project image" aria-modal="true">
+  <div class="lb-inner">
+    <div class="lb-bar">
+      <span id="lbCaption"></span>
+      <button id="lbClose">CLOSE ✕</button>
+    </div>
+    <img id="lbImg" src="" alt="">
+    <div id="lbMsg" style="display:none"></div>
+  </div>
+</div>
 
 <script>
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -769,6 +788,31 @@ document.querySelector('.term').addEventListener('click',()=>input.focus());
 /* ---------- ticker ---------- */
 const track=document.getElementById('tickerTrack');
 track.innerHTML+=track.innerHTML;
+
+/* ---------- project lightbox ---------- */
+const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg'),
+      lbMsg=document.getElementById('lbMsg'),lbCap=document.getElementById('lbCaption');
+function openLB(src,caption){
+  lbCap.textContent=caption;
+  lbMsg.style.display='none';
+  lbImg.style.display='block';
+  lbImg.src=src;
+  lbImg.alt=caption;
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLB(){lb.classList.remove('open');document.body.style.overflow='';lbImg.src='';}
+lbImg.addEventListener('error',()=>{
+  lbImg.style.display='none';
+  lbMsg.style.display='block';
+  lbMsg.textContent='Screenshot coming soon.\nDrop an image at ' + (lbImg.getAttribute('src')||'') + ' to display it here.';
+});
+document.querySelectorAll('.view').forEach(b=>{
+  b.addEventListener('click',e=>{e.stopPropagation();openLB(b.dataset.img,b.dataset.caption);});
+});
+document.getElementById('lbClose').addEventListener('click',closeLB);
+lb.addEventListener('click',e=>{if(e.target===lb)closeLB();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lb.classList.contains('open'))closeLB();});
 
 /* ---------- reveal ---------- */
 const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
